@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:padding="5dp"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/contentPhoto"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imgPhoto"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="#d4d4d4"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@android:drawable/ic_input_add"/>
+        </RelativeLayout>
+        <EditText
+            android:id="@+id/edtTitle"
+            android:layout_marginTop="5dp"
+            android:inputType="number"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="Nombre de la foto"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Obrainsa</string>
+    <string name="din_pro">DINPro.otf</string>
+    <string name="din_pro_black">DINPro-Black.otf</string>
+    <string name="din_pro_black_italic">DINPro-BlackItalic.otf</string>
+    <string name="din_pro_bold">DINPro-Bold.otf</string>
+    <string name="din_pro_bold_italic">DINPro-BoldItalic.otf</string>
+    <string name="din_pro_cond">DINPro-Cond.otf</string>
+    <string name="din_pro_cond_black">DINPro-CondBlack.otf</string>
+    <string name="din_pro_cond_black_ita">DINPro-CondBlackIta.otf</string>
+    <string name="din_pro_cond_bold">DINPro-CondBold.otf</string>
+    <string name="din_pro_cond_bold_ita">DINPro-CondBoldIta.otf</string>
+    <string name="din_pro_cond_ita">DINPro-CondIta.otf</string>
+    <string name="din_pro_cond_light">DINPro-CondLight.otf</string>
+    <string name="din_pro_cond_light_ita">DINPro-CondLightIta.otf</string>
+    <string name="din_pro_cond_med_ita">DINPro-CondMediIta.otf</string>
+    <string name="din_pro_cond_medium">DINPro-CondMedium.otf</string>
+    <string name="din_pro_italic">DINPro-Italic.otf</string>
+    <string name="din_pro_light">DINPro-Light.otf</string>
+    <string name="din_pro_light_italic">DINPro-LightItalic.otf</string>
+    <string name="din_pro_medium">DINPro-Medium.otf</string>
+    <string name="din_pro_medium_italic">DINPro-MediumItalic.otf</string>
+    <string name="teatro_amp_comedia"><![CDATA[Teatro & Comedia]]></string>
+    <string name="facebook_app_id">1981568888834390</string>
+    <string name="fb_login_protocol_scheme">fb1981568888834390</string>
+</resources>
