@@ -2,6 +2,7 @@ package com.victorsaico.obrainsa;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -142,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
             return validar;
     }
     private void setButtons()
-    {
+        {
         photo1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -168,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sharedPreferences.edit().putInt("positionPhoto", 4).apply();
+                selecPhoto();
             }
         });
         photo5.setOnClickListener(new View.OnClickListener() {
@@ -359,67 +361,761 @@ public class MainActivity extends AppCompatActivity {
 
         apiService service = apiServiceGenerator.createService(apiService.class);
         Call<responseMessage> call = null;
-        Bitmap bitmap = BitmapFactory.decodeFile(mediaFileUri.getPath());
 
+        final ProgressDialog progressDialog = ProgressDialog.show(MainActivity.this,"Generando Excel","Espere por favor",false);
+        progressDialog.show();
+        RequestBody proyecto;
+        RequestBody motivo;
+        RequestBody codigo_eam;
+        RequestBody date;
+        RequestBody descripcion;
+        RequestBody marca;
+        RequestBody modelo;
+        RequestBody nserie;
+        RequestBody horometro;
+        RequestBody dateout;
+        RequestBody numero_fotos;
+        File file,file1,file2,file3,file4,file5,file6,file7,file8,file9,file10;
+        ByteArrayOutputStream stream,stream1,stream2,stream3,stream4,stream5,stream6,stream7,stream8,stream9,stream10;
+        RequestBody requestFile;
+        RequestBody requestFile2;
+        RequestBody requestFile3;
+        RequestBody requestFile4;
+        RequestBody requestFile5;
+        RequestBody requestFile6;
+        RequestBody requestFile7;
+        RequestBody requestFile8;
+        RequestBody requestFile9;
+        RequestBody requestFile10;
+        byte[] byteArray;
+        byte[] byteArray2;
+        byte[] byteArray3;
+        byte[] byteArray4;
+        byte[] byteArray5;
+        byte[] byteArray6;
+        byte[] byteArray7;
+        byte[] byteArray8;
+        byte[] byteArray9;
+        byte[] byteArray10;
+        MultipartBody.Part imagenPart = null;
+        MultipartBody.Part imagenPart2 = null;
+        MultipartBody.Part imagenPart3 = null;
+        MultipartBody.Part imagenPart4 = null;
+        MultipartBody.Part imagenPart5 = null;
+        MultipartBody.Part imagenPart6 = null;
+        MultipartBody.Part imagenPart7 = null;
+        MultipartBody.Part imagenPart8 = null;
+        MultipartBody.Part imagenPart9 = null;
+        MultipartBody.Part imagenPart10 = null;
+        Bitmap bitmap,bitmap2,bitmap3,bitmap4,bitmap5,bitmap6,bitmap7,bitmap8,bitmap9,bitmap10;
         if( validar)
         {
-
-
-            File file = new File(mediaFileUri.getPath());
-            //Log.d(TAG, "File: " + file.getPath() + " - exists: " + file.exists());
-
-            // Podemos enviar la imagen con el tamaño original, pero lo mejor será comprimila antes de subir (byteArray)
-            // RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), file);
-
-
-            // Reducir la imagen a 800px solo si lo supera
-
-            bitmap = scaleBitmapDown(bitmap, 800);
-            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-            byte[] byteArray = stream.toByteArray();
-
-            RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), byteArray);
-            MultipartBody.Part imagenPart = MultipartBody.Part.createFormData("imagen", file.getName(), requestFile);
-
-            RequestBody proyecto = RequestBody.create(MultipartBody.FORM, edtProyecto.getText().toString());
-            RequestBody motivo = RequestBody.create(MultipartBody.FORM, edtMotivo.getText().toString());
-            RequestBody codigo_eam = RequestBody.create(MultipartBody.FORM, edtCodeEam.getText().toString());
-            RequestBody date = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
-            RequestBody descripcion = RequestBody.create(MultipartBody.FORM, edtDescription.getText().toString());
-            RequestBody marca = RequestBody.create(MultipartBody.FORM, edtMarca.getText().toString());
-            RequestBody modelo = RequestBody.create(MultipartBody.FORM, edtModelo.getText().toString());
-            RequestBody nserie = RequestBody.create(MultipartBody.FORM, edtSerie.getText().toString());
-            RequestBody horometro = RequestBody.create(MultipartBody.FORM, edtHorometro.getText().toString());
-            RequestBody dateout = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
-            RequestBody numero_fotos = RequestBody.create(MultipartBody.FORM, "1");
-            call = service.createInform1(proyecto, motivo, codigo_eam, date, descripcion,modelo, marca, nserie, horometro,dateout,numero_fotos,imagenPart);
-
-            switch (bitmaps.size())
+            
+            switch (uris.size())
             {
                 case 1:
-                    for (int i =0; i < bitmaps.size();i++)
-                    {
 
-                    }
+                        file = new File(mediaFileUri.getPath());
+                        bitmap = BitmapFactory.decodeFile(file.getPath());
+                        bitmap = scaleBitmapDown(bitmap, 800);
+                        stream = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                        byteArray = stream.toByteArray();
+
+                        requestFile = RequestBody.create(MediaType.parse("image/jpeg"), file);
+                        imagenPart = MultipartBody.Part.createFormData("photo"+"1", file.getName(), requestFile);
+
+                    proyecto = RequestBody.create(MultipartBody.FORM, edtProyecto.getText().toString());
+                    motivo = RequestBody.create(MultipartBody.FORM, edtMotivo.getText().toString());
+                    codigo_eam = RequestBody.create(MultipartBody.FORM, edtCodeEam.getText().toString());
+                    date = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    descripcion = RequestBody.create(MultipartBody.FORM, edtDescription.getText().toString());
+                    marca = RequestBody.create(MultipartBody.FORM, edtMarca.getText().toString());
+                    modelo = RequestBody.create(MultipartBody.FORM, edtModelo.getText().toString());
+                    nserie = RequestBody.create(MultipartBody.FORM, edtSerie.getText().toString());
+                    horometro = RequestBody.create(MultipartBody.FORM, edtHorometro.getText().toString());
+                    dateout = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    numero_fotos = RequestBody.create(MultipartBody.FORM, "1");
+                    call = service.createInform1(proyecto, motivo, codigo_eam, date, descripcion,modelo, marca, nserie, horometro,dateout,numero_fotos,imagenPart);
                     break;
                 case 2:
+
+                    file = new File(uris.get(0).getPath());
+                        bitmap = BitmapFactory.decodeFile(file.getPath());
+                        bitmap = scaleBitmapDown(bitmap, 800);
+                         stream = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                        byteArray = stream.toByteArray();
+
+                        requestFile = RequestBody.create(MediaType.parse("image/jpeg"), byteArray);
+                        imagenPart = MultipartBody.Part.createFormData("photo"+"1", file.getName(), requestFile);
+
+
+                   file2 = new File(uris.get(1).getPath());
+                    bitmap2 = BitmapFactory.decodeFile(file2.getPath());
+                    bitmap2 = scaleBitmapDown(bitmap2, 800);
+                    stream2 = new ByteArrayOutputStream();
+                    bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
+                    byteArray2 = stream2.toByteArray();
+
+                    requestFile2 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray2);
+                    imagenPart2 = MultipartBody.Part.createFormData("photo"+"2", file2.getName(), requestFile2);
+
+                    proyecto = RequestBody.create(MultipartBody.FORM, edtProyecto.getText().toString());
+                    motivo = RequestBody.create(MultipartBody.FORM, edtMotivo.getText().toString());
+                    codigo_eam = RequestBody.create(MultipartBody.FORM, edtCodeEam.getText().toString());
+                    date = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    descripcion = RequestBody.create(MultipartBody.FORM, edtDescription.getText().toString());
+                    marca = RequestBody.create(MultipartBody.FORM, edtMarca.getText().toString());
+                    modelo = RequestBody.create(MultipartBody.FORM, edtModelo.getText().toString());
+                    nserie = RequestBody.create(MultipartBody.FORM, edtSerie.getText().toString());
+                    horometro = RequestBody.create(MultipartBody.FORM, edtHorometro.getText().toString());
+                    dateout = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    numero_fotos = RequestBody.create(MultipartBody.FORM, "2");
+                    call = service.createInform2(proyecto, motivo, codigo_eam, date, descripcion,modelo, marca, nserie, horometro,dateout,numero_fotos,imagenPart,imagenPart2);
                     break;
                 case 3:
+                    file = new File(uris.get(0).getPath());
+                    bitmap = BitmapFactory.decodeFile(file.getPath());
+                    bitmap = scaleBitmapDown(bitmap, 800);
+                    stream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                    byteArray = stream.toByteArray();
+
+                    requestFile = RequestBody.create(MediaType.parse("image/jpeg"), byteArray);
+                    imagenPart = MultipartBody.Part.createFormData("photo"+"1", file.getName(), requestFile);
+
+
+                    file2 = new File(uris.get(1).getPath());
+                    bitmap2 = BitmapFactory.decodeFile(file2.getPath());
+                    bitmap2 = scaleBitmapDown(bitmap2, 800);
+                    stream2 = new ByteArrayOutputStream();
+                    bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
+                    byteArray2 = stream2.toByteArray();
+
+                    requestFile2 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray2);
+                    imagenPart2 = MultipartBody.Part.createFormData("photo"+"2", file2.getName(), requestFile2);
+
+                    file3 = new File(uris.get(2).getPath());
+                    bitmap3 = BitmapFactory.decodeFile(file3.getPath());
+                    bitmap3 = scaleBitmapDown(bitmap3, 800);
+                    stream3 = new ByteArrayOutputStream();
+                    bitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
+                    byteArray3 = stream3.toByteArray();
+
+                    requestFile3 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray3);
+                    imagenPart3 = MultipartBody.Part.createFormData("photo"+"3", file3.getName(), requestFile3);
+
+                    proyecto = RequestBody.create(MultipartBody.FORM, edtProyecto.getText().toString());
+                    motivo = RequestBody.create(MultipartBody.FORM, edtMotivo.getText().toString());
+                    codigo_eam = RequestBody.create(MultipartBody.FORM, edtCodeEam.getText().toString());
+                    date = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    descripcion = RequestBody.create(MultipartBody.FORM, edtDescription.getText().toString());
+                    marca = RequestBody.create(MultipartBody.FORM, edtMarca.getText().toString());
+                    modelo = RequestBody.create(MultipartBody.FORM, edtModelo.getText().toString());
+                    nserie = RequestBody.create(MultipartBody.FORM, edtSerie.getText().toString());
+                    horometro = RequestBody.create(MultipartBody.FORM, edtHorometro.getText().toString());
+                    dateout = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    numero_fotos = RequestBody.create(MultipartBody.FORM, "3");
+                    call = service.createInform3(proyecto, motivo, codigo_eam, date, descripcion,modelo, marca, nserie, horometro,dateout,numero_fotos,imagenPart,imagenPart2,imagenPart3);
                     break;
                 case 4:
+                    file = new File(uris.get(0).getPath());
+                    bitmap = BitmapFactory.decodeFile(file.getPath());
+                    bitmap = scaleBitmapDown(bitmap, 800);
+                    stream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                    byteArray = stream.toByteArray();
+
+                    requestFile = RequestBody.create(MediaType.parse("image/jpeg"), byteArray);
+                    imagenPart = MultipartBody.Part.createFormData("photo"+"1", file.getName(), requestFile);
+
+
+                    file2 = new File(uris.get(1).getPath());
+                    bitmap2 = BitmapFactory.decodeFile(file2.getPath());
+                    bitmap2 = scaleBitmapDown(bitmap2, 800);
+                    stream2 = new ByteArrayOutputStream();
+                    bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
+                    byteArray2 = stream2.toByteArray();
+
+                    requestFile2 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray2);
+                    imagenPart2 = MultipartBody.Part.createFormData("photo"+"2", file2.getName(), requestFile2);
+
+                    file3 = new File(uris.get(2).getPath());
+                    bitmap3 = BitmapFactory.decodeFile(file3.getPath());
+                    bitmap3 = scaleBitmapDown(bitmap3, 800);
+                    stream3 = new ByteArrayOutputStream();
+                    bitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
+                    byteArray3 = stream3.toByteArray();
+
+                    requestFile3 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray3);
+                    imagenPart3 = MultipartBody.Part.createFormData("photo"+"3", file3.getName(), requestFile3);
+
+                    file4 = new File(uris.get(3).getPath());
+                    bitmap4 = BitmapFactory.decodeFile(file4.getPath());
+                    bitmap4 = scaleBitmapDown(bitmap4, 800);
+                    stream4 = new ByteArrayOutputStream();
+                    bitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
+                    byteArray4 = stream4.toByteArray();
+
+                    requestFile4 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray4);
+                    imagenPart4 = MultipartBody.Part.createFormData("photo"+"4", file4.getName(), requestFile4);
+
+                    proyecto = RequestBody.create(MultipartBody.FORM, edtProyecto.getText().toString());
+                    motivo = RequestBody.create(MultipartBody.FORM, edtMotivo.getText().toString());
+                    codigo_eam = RequestBody.create(MultipartBody.FORM, edtCodeEam.getText().toString());
+                    date = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    descripcion = RequestBody.create(MultipartBody.FORM, edtDescription.getText().toString());
+                    marca = RequestBody.create(MultipartBody.FORM, edtMarca.getText().toString());
+                    modelo = RequestBody.create(MultipartBody.FORM, edtModelo.getText().toString());
+                    nserie = RequestBody.create(MultipartBody.FORM, edtSerie.getText().toString());
+                    horometro = RequestBody.create(MultipartBody.FORM, edtHorometro.getText().toString());
+                    dateout = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    numero_fotos = RequestBody.create(MultipartBody.FORM, "4");
+                    call = service.createInform4(proyecto, motivo, codigo_eam, date, descripcion,modelo, marca, nserie, horometro,dateout,numero_fotos,imagenPart,imagenPart2,imagenPart3,imagenPart4);
                     break;
                 case 5:
+                    file = new File(uris.get(0).getPath());
+                    bitmap = BitmapFactory.decodeFile(file.getPath());
+                    bitmap = scaleBitmapDown(bitmap, 800);
+                    stream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                    byteArray = stream.toByteArray();
+
+                    requestFile = RequestBody.create(MediaType.parse("image/jpeg"), byteArray);
+                    imagenPart = MultipartBody.Part.createFormData("photo"+"1", file.getName(), requestFile);
+
+
+                    file2 = new File(uris.get(1).getPath());
+                    bitmap2 = BitmapFactory.decodeFile(file2.getPath());
+                    bitmap2 = scaleBitmapDown(bitmap2, 800);
+                    stream2 = new ByteArrayOutputStream();
+                    bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
+                    byteArray2 = stream2.toByteArray();
+
+                    requestFile2 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray2);
+                    imagenPart2 = MultipartBody.Part.createFormData("photo"+"2", file2.getName(), requestFile2);
+
+                    file3 = new File(uris.get(2).getPath());
+                    bitmap3 = BitmapFactory.decodeFile(file3.getPath());
+                    bitmap3 = scaleBitmapDown(bitmap3, 800);
+                    stream3 = new ByteArrayOutputStream();
+                    bitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
+                    byteArray3 = stream3.toByteArray();
+
+                    requestFile3 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray3);
+                    imagenPart3 = MultipartBody.Part.createFormData("photo"+"3", file3.getName(), requestFile3);
+
+                    file4 = new File(uris.get(3).getPath());
+                    bitmap4 = BitmapFactory.decodeFile(file4.getPath());
+                    bitmap4 = scaleBitmapDown(bitmap4, 800);
+                    stream4 = new ByteArrayOutputStream();
+                    bitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
+                    byteArray4 = stream4.toByteArray();
+
+                    requestFile4 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray4);
+                    imagenPart4 = MultipartBody.Part.createFormData("photo"+"4", file4.getName(), requestFile4);
+
+                    file5 = new File(uris.get(4).getPath());
+                    bitmap5 = BitmapFactory.decodeFile(file5.getPath());
+                    bitmap5 = scaleBitmapDown(bitmap5, 800);
+                    stream5 = new ByteArrayOutputStream();
+                    bitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
+                    byteArray5 = stream5.toByteArray();
+
+                    requestFile5 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray5);
+                    imagenPart5 = MultipartBody.Part.createFormData("photo"+"5", file5.getName(), requestFile5);
+
+
+                    proyecto = RequestBody.create(MultipartBody.FORM, edtProyecto.getText().toString());
+                    motivo = RequestBody.create(MultipartBody.FORM, edtMotivo.getText().toString());
+                    codigo_eam = RequestBody.create(MultipartBody.FORM, edtCodeEam.getText().toString());
+                    date = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    descripcion = RequestBody.create(MultipartBody.FORM, edtDescription.getText().toString());
+                    marca = RequestBody.create(MultipartBody.FORM, edtMarca.getText().toString());
+                    modelo = RequestBody.create(MultipartBody.FORM, edtModelo.getText().toString());
+                    nserie = RequestBody.create(MultipartBody.FORM, edtSerie.getText().toString());
+                    horometro = RequestBody.create(MultipartBody.FORM, edtHorometro.getText().toString());
+                    dateout = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    numero_fotos = RequestBody.create(MultipartBody.FORM, "5");
+                    call = service.createInform5(proyecto, motivo, codigo_eam, date, descripcion,modelo, marca, nserie, horometro,dateout,numero_fotos,imagenPart,imagenPart2,imagenPart3,imagenPart4,imagenPart5);
                     break;
                 case 6:
+                    file = new File(uris.get(0).getPath());
+                    bitmap = BitmapFactory.decodeFile(file.getPath());
+                    bitmap = scaleBitmapDown(bitmap, 800);
+                    stream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                    byteArray = stream.toByteArray();
+
+                    requestFile = RequestBody.create(MediaType.parse("image/jpeg"), byteArray);
+                    imagenPart = MultipartBody.Part.createFormData("photo"+"1", file.getName(), requestFile);
+
+
+                    file2 = new File(uris.get(1).getPath());
+                    bitmap2 = BitmapFactory.decodeFile(file2.getPath());
+                    bitmap2 = scaleBitmapDown(bitmap2, 800);
+                    stream2 = new ByteArrayOutputStream();
+                    bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
+                    byteArray2 = stream2.toByteArray();
+
+                    requestFile2 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray2);
+                    imagenPart2 = MultipartBody.Part.createFormData("photo"+"2", file2.getName(), requestFile2);
+
+                    file3 = new File(uris.get(2).getPath());
+                    bitmap3 = BitmapFactory.decodeFile(file3.getPath());
+                    bitmap3 = scaleBitmapDown(bitmap3, 800);
+                    stream3 = new ByteArrayOutputStream();
+                    bitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
+                    byteArray3 = stream3.toByteArray();
+
+                    requestFile3 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray3);
+                    imagenPart3 = MultipartBody.Part.createFormData("photo"+"3", file3.getName(), requestFile3);
+
+                    file4 = new File(uris.get(3).getPath());
+                    bitmap4 = BitmapFactory.decodeFile(file4.getPath());
+                    bitmap4 = scaleBitmapDown(bitmap4, 800);
+                    stream4 = new ByteArrayOutputStream();
+                    bitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
+                    byteArray4 = stream4.toByteArray();
+
+                    requestFile4 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray4);
+                    imagenPart4 = MultipartBody.Part.createFormData("photo"+"4", file4.getName(), requestFile4);
+
+                    file5 = new File(uris.get(4).getPath());
+                    bitmap5 = BitmapFactory.decodeFile(file5.getPath());
+                    bitmap5 = scaleBitmapDown(bitmap5, 800);
+                    stream5 = new ByteArrayOutputStream();
+                    bitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
+                    byteArray5 = stream5.toByteArray();
+
+                    requestFile5 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray5);
+                    imagenPart5 = MultipartBody.Part.createFormData("photo"+"5", file5.getName(), requestFile5);
+
+                    file6 = new File(uris.get(5).getPath());
+                    bitmap6 = BitmapFactory.decodeFile(file6.getPath());
+                    bitmap6 = scaleBitmapDown(bitmap6, 800);
+                    stream6 = new ByteArrayOutputStream();
+                    bitmap6.compress(Bitmap.CompressFormat.JPEG, 100, stream6);
+                    byteArray6 = stream6.toByteArray();
+
+                    requestFile6 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray6);
+                    imagenPart6 = MultipartBody.Part.createFormData("photo"+"6", file6.getName(), requestFile6);
+
+
+                    proyecto = RequestBody.create(MultipartBody.FORM, edtProyecto.getText().toString());
+                    motivo = RequestBody.create(MultipartBody.FORM, edtMotivo.getText().toString());
+                    codigo_eam = RequestBody.create(MultipartBody.FORM, edtCodeEam.getText().toString());
+                    date = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    descripcion = RequestBody.create(MultipartBody.FORM, edtDescription.getText().toString());
+                    marca = RequestBody.create(MultipartBody.FORM, edtMarca.getText().toString());
+                    modelo = RequestBody.create(MultipartBody.FORM, edtModelo.getText().toString());
+                    nserie = RequestBody.create(MultipartBody.FORM, edtSerie.getText().toString());
+                    horometro = RequestBody.create(MultipartBody.FORM, edtHorometro.getText().toString());
+                    dateout = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    numero_fotos = RequestBody.create(MultipartBody.FORM, "6");
+                    call = service.createInform6(proyecto, motivo, codigo_eam, date, descripcion,modelo, marca, nserie, horometro,dateout,numero_fotos,imagenPart,imagenPart2,imagenPart3,imagenPart4,imagenPart5,imagenPart6);
                     break;
                 case 7:
+                    file = new File(uris.get(0).getPath());
+                    bitmap = BitmapFactory.decodeFile(file.getPath());
+                    bitmap = scaleBitmapDown(bitmap, 800);
+                    stream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                    byteArray = stream.toByteArray();
+
+                    requestFile = RequestBody.create(MediaType.parse("image/jpeg"), byteArray);
+                    imagenPart = MultipartBody.Part.createFormData("photo"+"1", file.getName(), requestFile);
+
+
+                    file2 = new File(uris.get(1).getPath());
+                    bitmap2 = BitmapFactory.decodeFile(file2.getPath());
+                    bitmap2 = scaleBitmapDown(bitmap2, 800);
+                    stream2 = new ByteArrayOutputStream();
+                    bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
+                    byteArray2 = stream2.toByteArray();
+
+                    requestFile2 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray2);
+                    imagenPart2 = MultipartBody.Part.createFormData("photo"+"2", file2.getName(), requestFile2);
+
+                    file3 = new File(uris.get(2).getPath());
+                    bitmap3 = BitmapFactory.decodeFile(file3.getPath());
+                    bitmap3 = scaleBitmapDown(bitmap3, 800);
+                    stream3 = new ByteArrayOutputStream();
+                    bitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
+                    byteArray3 = stream3.toByteArray();
+
+                    requestFile3 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray3);
+                    imagenPart3 = MultipartBody.Part.createFormData("photo"+"3", file3.getName(), requestFile3);
+
+                    file4 = new File(uris.get(3).getPath());
+                    bitmap4 = BitmapFactory.decodeFile(file4.getPath());
+                    bitmap4 = scaleBitmapDown(bitmap4, 800);
+                    stream4 = new ByteArrayOutputStream();
+                    bitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
+                    byteArray4 = stream4.toByteArray();
+
+                    requestFile4 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray4);
+                    imagenPart4 = MultipartBody.Part.createFormData("photo"+"4", file4.getName(), requestFile4);
+
+                    file5 = new File(uris.get(4).getPath());
+                    bitmap5 = BitmapFactory.decodeFile(file5.getPath());
+                    bitmap5 = scaleBitmapDown(bitmap5, 800);
+                    stream5 = new ByteArrayOutputStream();
+                    bitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
+                    byteArray5 = stream5.toByteArray();
+
+                    requestFile5 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray5);
+                    imagenPart5 = MultipartBody.Part.createFormData("photo"+"5", file5.getName(), requestFile5);
+
+                    file6 = new File(uris.get(5).getPath());
+                    bitmap6 = BitmapFactory.decodeFile(file6.getPath());
+                    bitmap6 = scaleBitmapDown(bitmap6, 800);
+                    stream6 = new ByteArrayOutputStream();
+                    bitmap6.compress(Bitmap.CompressFormat.JPEG, 100, stream6);
+                    byteArray6 = stream6.toByteArray();
+
+                    requestFile6 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray6);
+                    imagenPart6 = MultipartBody.Part.createFormData("photo"+"6", file6.getName(), requestFile6);
+
+                    file7 = new File(uris.get(6).getPath());
+                    bitmap7 = BitmapFactory.decodeFile(file7.getPath());
+                    bitmap7 = scaleBitmapDown(bitmap7, 800);
+                    stream7 = new ByteArrayOutputStream();
+                    bitmap7.compress(Bitmap.CompressFormat.JPEG, 100, stream7);
+                    byteArray7 = stream7.toByteArray();
+
+                    requestFile7 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray7);
+                    imagenPart7 = MultipartBody.Part.createFormData("photo"+"7", file7.getName(), requestFile7);
+
+                    proyecto = RequestBody.create(MultipartBody.FORM, edtProyecto.getText().toString());
+                    motivo = RequestBody.create(MultipartBody.FORM, edtMotivo.getText().toString());
+                    codigo_eam = RequestBody.create(MultipartBody.FORM, edtCodeEam.getText().toString());
+                    date = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    descripcion = RequestBody.create(MultipartBody.FORM, edtDescription.getText().toString());
+                    marca = RequestBody.create(MultipartBody.FORM, edtMarca.getText().toString());
+                    modelo = RequestBody.create(MultipartBody.FORM, edtModelo.getText().toString());
+                    nserie = RequestBody.create(MultipartBody.FORM, edtSerie.getText().toString());
+                    horometro = RequestBody.create(MultipartBody.FORM, edtHorometro.getText().toString());
+                    dateout = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    numero_fotos = RequestBody.create(MultipartBody.FORM, "6");
+                    call = service.createInform7(proyecto, motivo, codigo_eam, date, descripcion,modelo, marca, nserie, horometro,dateout,numero_fotos,imagenPart,imagenPart2,imagenPart3,imagenPart4,imagenPart5,imagenPart6,imagenPart7);
                     break;
                 case 8:
+                    file = new File(uris.get(0).getPath());
+                    bitmap = BitmapFactory.decodeFile(file.getPath());
+                    bitmap = scaleBitmapDown(bitmap, 800);
+                    stream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                    byteArray = stream.toByteArray();
+
+                    requestFile = RequestBody.create(MediaType.parse("image/jpeg"), byteArray);
+                    imagenPart = MultipartBody.Part.createFormData("photo"+"1", file.getName(), requestFile);
+
+
+                    file2 = new File(uris.get(1).getPath());
+                    bitmap2 = BitmapFactory.decodeFile(file2.getPath());
+                    bitmap2 = scaleBitmapDown(bitmap2, 800);
+                    stream2 = new ByteArrayOutputStream();
+                    bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
+                    byteArray2 = stream2.toByteArray();
+
+                    requestFile2 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray2);
+                    imagenPart2 = MultipartBody.Part.createFormData("photo"+"2", file2.getName(), requestFile2);
+
+                    file3 = new File(uris.get(2).getPath());
+                    bitmap3 = BitmapFactory.decodeFile(file3.getPath());
+                    bitmap3 = scaleBitmapDown(bitmap3, 800);
+                    stream3 = new ByteArrayOutputStream();
+                    bitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
+                    byteArray3 = stream3.toByteArray();
+
+                    requestFile3 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray3);
+                    imagenPart3 = MultipartBody.Part.createFormData("photo"+"3", file3.getName(), requestFile3);
+
+                    file4 = new File(uris.get(3).getPath());
+                    bitmap4 = BitmapFactory.decodeFile(file4.getPath());
+                    bitmap4 = scaleBitmapDown(bitmap4, 800);
+                    stream4 = new ByteArrayOutputStream();
+                    bitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
+                    byteArray4 = stream4.toByteArray();
+
+                    requestFile4 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray4);
+                    imagenPart4 = MultipartBody.Part.createFormData("photo"+"4", file4.getName(), requestFile4);
+
+                    file5 = new File(uris.get(4).getPath());
+                    bitmap5 = BitmapFactory.decodeFile(file5.getPath());
+                    bitmap5 = scaleBitmapDown(bitmap5, 800);
+                    stream5 = new ByteArrayOutputStream();
+                    bitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
+                    byteArray5 = stream5.toByteArray();
+
+                    requestFile5 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray5);
+                    imagenPart5 = MultipartBody.Part.createFormData("photo"+"5", file5.getName(), requestFile5);
+
+                    file6 = new File(uris.get(5).getPath());
+                    bitmap6 = BitmapFactory.decodeFile(file6.getPath());
+                    bitmap6 = scaleBitmapDown(bitmap6, 800);
+                    stream6 = new ByteArrayOutputStream();
+                    bitmap6.compress(Bitmap.CompressFormat.JPEG, 100, stream6);
+                    byteArray6 = stream6.toByteArray();
+
+                    requestFile6 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray6);
+                    imagenPart6 = MultipartBody.Part.createFormData("photo"+"6", file6.getName(), requestFile6);
+
+                    file7 = new File(uris.get(6).getPath());
+                    bitmap7 = BitmapFactory.decodeFile(file7.getPath());
+                    bitmap7 = scaleBitmapDown(bitmap7, 800);
+                    stream7 = new ByteArrayOutputStream();
+                    bitmap7.compress(Bitmap.CompressFormat.JPEG, 100, stream7);
+                    byteArray7 = stream7.toByteArray();
+
+                    requestFile7 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray7);
+                    imagenPart7 = MultipartBody.Part.createFormData("photo"+"7", file7.getName(), requestFile7);
+
+                    file8 = new File(uris.get(7).getPath());
+                    bitmap8 = BitmapFactory.decodeFile(file8.getPath());
+                    bitmap8 = scaleBitmapDown(bitmap8, 800);
+                    stream8 = new ByteArrayOutputStream();
+                    bitmap8.compress(Bitmap.CompressFormat.JPEG, 100, stream8);
+                    byteArray8 = stream8.toByteArray();
+
+                    requestFile8 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray8);
+                    imagenPart8 = MultipartBody.Part.createFormData("photo"+"8", file8.getName(), requestFile8);
+
+                    proyecto = RequestBody.create(MultipartBody.FORM, edtProyecto.getText().toString());
+                    motivo = RequestBody.create(MultipartBody.FORM, edtMotivo.getText().toString());
+                    codigo_eam = RequestBody.create(MultipartBody.FORM, edtCodeEam.getText().toString());
+                    date = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    descripcion = RequestBody.create(MultipartBody.FORM, edtDescription.getText().toString());
+                    marca = RequestBody.create(MultipartBody.FORM, edtMarca.getText().toString());
+                    modelo = RequestBody.create(MultipartBody.FORM, edtModelo.getText().toString());
+                    nserie = RequestBody.create(MultipartBody.FORM, edtSerie.getText().toString());
+                    horometro = RequestBody.create(MultipartBody.FORM, edtHorometro.getText().toString());
+                    dateout = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    numero_fotos = RequestBody.create(MultipartBody.FORM, "8");
+                    call = service.createInform8(proyecto, motivo, codigo_eam, date, descripcion,modelo, marca, nserie, horometro,dateout,numero_fotos,imagenPart,imagenPart2,imagenPart3,imagenPart4,imagenPart5,imagenPart6,imagenPart7,imagenPart8);
                     break;
-                case 9:
+                case  9:
+                file = new File(uris.get(0).getPath());
+                    bitmap = BitmapFactory.decodeFile(file.getPath());
+                bitmap = scaleBitmapDown(bitmap, 800);
+                stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                byteArray = stream.toByteArray();
+
+                requestFile = RequestBody.create(MediaType.parse("image/jpeg"), byteArray);
+                imagenPart = MultipartBody.Part.createFormData("photo"+"1", file.getName(), requestFile);
+
+
+                file2 = new File(uris.get(1).getPath());
+                    bitmap2 = BitmapFactory.decodeFile(file2.getPath());
+                bitmap2 = scaleBitmapDown(bitmap, 800);
+                stream2 = new ByteArrayOutputStream();
+                bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
+                byteArray2 = stream2.toByteArray();
+
+                requestFile2 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray2);
+                imagenPart2 = MultipartBody.Part.createFormData("photo"+"2", file2.getName(), requestFile2);
+
+                file3 = new File(uris.get(2).getPath());
+                    bitmap3 = BitmapFactory.decodeFile(file3.getPath());
+                bitmap3 = scaleBitmapDown(bitmap3, 800);
+                stream3 = new ByteArrayOutputStream();
+                bitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
+                byteArray3 = stream3.toByteArray();
+
+                requestFile3 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray3);
+                imagenPart3 = MultipartBody.Part.createFormData("photo"+"3", file3.getName(), requestFile3);
+
+                file4 = new File(uris.get(3).getPath());
+                    bitmap4 = BitmapFactory.decodeFile(file4.getPath());
+                bitmap4 = scaleBitmapDown(bitmap4, 800);
+                stream4 = new ByteArrayOutputStream();
+                bitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
+                byteArray4 = stream4.toByteArray();
+
+                requestFile4 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray4);
+                imagenPart4 = MultipartBody.Part.createFormData("photo"+"4", file4.getName(), requestFile4);
+
+                file5 = new File(uris.get(4).getPath());
+                    bitmap5 = BitmapFactory.decodeFile(file5.getPath());
+                bitmap5 = scaleBitmapDown(bitmap5, 800);
+                stream5 = new ByteArrayOutputStream();
+                bitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
+                byteArray5 = stream5.toByteArray();
+
+                requestFile5 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray5);
+                imagenPart5 = MultipartBody.Part.createFormData("photo"+"5", file5.getName(), requestFile5);
+
+                file6 = new File(uris.get(5).getPath());
+                    bitmap6 = BitmapFactory.decodeFile(file6.getPath());
+                bitmap6 = scaleBitmapDown(bitmap6, 800);
+                stream6 = new ByteArrayOutputStream();
+                bitmap6.compress(Bitmap.CompressFormat.JPEG, 100, stream6);
+                byteArray6 = stream6.toByteArray();
+
+                requestFile6 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray6);
+                imagenPart6 = MultipartBody.Part.createFormData("photo"+"6", file6.getName(), requestFile6);
+
+                file7 = new File(uris.get(6).getPath());
+                    bitmap7 = BitmapFactory.decodeFile(file7.getPath());
+                bitmap7 = scaleBitmapDown(bitmap, 800);
+                stream7 = new ByteArrayOutputStream();
+                bitmap7.compress(Bitmap.CompressFormat.JPEG, 100, stream7);
+                byteArray7 = stream7.toByteArray();
+
+                requestFile7 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray7);
+                imagenPart7 = MultipartBody.Part.createFormData("photo"+"7", file7.getName(), requestFile7);
+
+                file8 = new File(uris.get(7).getPath());
+                    bitmap8 = BitmapFactory.decodeFile(file8.getPath());
+                bitmap8 = scaleBitmapDown(bitmap8, 800);
+                stream8 = new ByteArrayOutputStream();
+                bitmap8.compress(Bitmap.CompressFormat.JPEG, 100, stream8);
+                byteArray8 = stream8.toByteArray();
+
+                requestFile8 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray8);
+                imagenPart8 = MultipartBody.Part.createFormData("photo"+"8", file8.getName(), requestFile8);
+
+                file9 = new File(uris.get(8).getPath());
+                    bitmap9 = BitmapFactory.decodeFile(file9.getPath());
+                bitmap9 = scaleBitmapDown(bitmap9, 800);
+                stream9 = new ByteArrayOutputStream();
+                bitmap9.compress(Bitmap.CompressFormat.JPEG, 100, stream9);
+                byteArray9 = stream9.toByteArray();
+
+                requestFile9 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray9);
+                imagenPart9 = MultipartBody.Part.createFormData("photo"+"9", file9.getName(), requestFile9);
+
+                proyecto = RequestBody.create(MultipartBody.FORM, edtProyecto.getText().toString());
+                motivo = RequestBody.create(MultipartBody.FORM, edtMotivo.getText().toString());
+                codigo_eam = RequestBody.create(MultipartBody.FORM, edtCodeEam.getText().toString());
+                date = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                descripcion = RequestBody.create(MultipartBody.FORM, edtDescription.getText().toString());
+                marca = RequestBody.create(MultipartBody.FORM, edtMarca.getText().toString());
+                modelo = RequestBody.create(MultipartBody.FORM, edtModelo.getText().toString());
+                nserie = RequestBody.create(MultipartBody.FORM, edtSerie.getText().toString());
+                horometro = RequestBody.create(MultipartBody.FORM, edtHorometro.getText().toString());
+                dateout = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                numero_fotos = RequestBody.create(MultipartBody.FORM, "9");
+                call = service.createInform9(proyecto, motivo, codigo_eam, date, descripcion,modelo, marca, nserie, horometro,dateout,numero_fotos,imagenPart,imagenPart2,imagenPart3,imagenPart4,imagenPart5,imagenPart6,imagenPart7,imagenPart8,imagenPart9);
                     break;
                 case 10:
+                    file = new File(uris.get(0).getPath());
+                    bitmap = BitmapFactory.decodeFile(file.getPath());
+                    bitmap = scaleBitmapDown(bitmap, 800);
+                    stream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                    byteArray = stream.toByteArray();
+
+                    requestFile = RequestBody.create(MediaType.parse("image/jpeg"), byteArray);
+                    imagenPart = MultipartBody.Part.createFormData("photo"+"1", file.getName(), requestFile);
+
+
+                    file2 = new File(uris.get(1).getPath());
+                    bitmap2 = BitmapFactory.decodeFile(file2.getPath());
+                    bitmap2 = scaleBitmapDown(bitmap2, 800);
+                    stream2 = new ByteArrayOutputStream();
+                    bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
+                    byteArray2 = stream2.toByteArray();
+
+                    requestFile2 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray2);
+                    imagenPart2 = MultipartBody.Part.createFormData("photo"+"2", file2.getName(), requestFile2);
+
+                    file3 = new File(uris.get(2).getPath());
+                    bitmap3 = BitmapFactory.decodeFile(file3.getPath());
+                    bitmap3 = scaleBitmapDown(bitmap3, 800);
+                    stream3 = new ByteArrayOutputStream();
+                    bitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
+                    byteArray3 = stream3.toByteArray();
+
+                    requestFile3 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray3);
+                    imagenPart3 = MultipartBody.Part.createFormData("photo"+"3", file3.getName(), requestFile3);
+
+                    file4 = new File(uris.get(3).getPath());
+                    bitmap4 = BitmapFactory.decodeFile(file4.getPath());
+                    bitmap4 = scaleBitmapDown(bitmap, 800);
+                    stream4 = new ByteArrayOutputStream();
+                    bitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
+                    byteArray4 = stream4.toByteArray();
+
+                    requestFile4 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray4);
+                    imagenPart4 = MultipartBody.Part.createFormData("photo"+"4", file4.getName(), requestFile4);
+
+                    file5 = new File(uris.get(4).getPath());
+                    bitmap5 = BitmapFactory.decodeFile(file5.getPath());
+                    bitmap5 = scaleBitmapDown(bitmap5, 800);
+                    stream5 = new ByteArrayOutputStream();
+                    bitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
+                    byteArray5 = stream5.toByteArray();
+
+                    requestFile5 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray5);
+                    imagenPart5 = MultipartBody.Part.createFormData("photo"+"5", file5.getName(), requestFile5);
+
+                    file6 = new File(uris.get(5).getPath());
+                    bitmap6 = BitmapFactory.decodeFile(file6.getPath());
+                    bitmap6 = scaleBitmapDown(bitmap6, 800);
+                    stream6 = new ByteArrayOutputStream();
+                    bitmap6.compress(Bitmap.CompressFormat.JPEG, 100, stream6);
+                    byteArray6 = stream6.toByteArray();
+
+                    requestFile6 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray6);
+                    imagenPart6 = MultipartBody.Part.createFormData("photo"+"6", file6.getName(), requestFile6);
+
+                    file7 = new File(uris.get(6).getPath());
+                    bitmap7 = BitmapFactory.decodeFile(file7.getPath());
+                    bitmap7 = scaleBitmapDown(bitmap7, 800);
+                    stream7 = new ByteArrayOutputStream();
+                    bitmap7.compress(Bitmap.CompressFormat.JPEG, 100, stream7);
+                    byteArray7 = stream7.toByteArray();
+
+                    requestFile7 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray7);
+                    imagenPart7 = MultipartBody.Part.createFormData("photo"+"7", file7.getName(), requestFile7);
+
+                    file8 = new File(uris.get(7).getPath());
+                    bitmap8 = BitmapFactory.decodeFile(file8.getPath());
+                    bitmap8 = scaleBitmapDown(bitmap8, 800);
+                    stream8 = new ByteArrayOutputStream();
+                    bitmap8.compress(Bitmap.CompressFormat.JPEG, 100, stream8);
+                    byteArray8 = stream8.toByteArray();
+
+                    requestFile8 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray8);
+                    imagenPart8 = MultipartBody.Part.createFormData("photo"+"8", file8.getName(), requestFile8);
+
+                    file9 = new File(uris.get(8).getPath());
+                    bitmap9 = BitmapFactory.decodeFile(file9.getPath());
+                    bitmap9 = scaleBitmapDown(bitmap9, 800);
+                    stream9 = new ByteArrayOutputStream();
+                    bitmap9.compress(Bitmap.CompressFormat.JPEG, 100, stream9);
+                    byteArray9 = stream9.toByteArray();
+
+                    requestFile9 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray9);
+                    imagenPart9 = MultipartBody.Part.createFormData("photo"+"9", file9.getName(), requestFile9);
+
+                    file10 = new File(uris.get(9).getPath());
+                    bitmap10 = BitmapFactory.decodeFile(file10.getPath());
+                    bitmap10 = scaleBitmapDown(bitmap10, 800);
+                    stream10 = new ByteArrayOutputStream();
+                    bitmap10.compress(Bitmap.CompressFormat.JPEG, 100, stream10);
+                    byteArray10 = stream10.toByteArray();
+
+                    requestFile10 = RequestBody.create(MediaType.parse("image/jpeg"), byteArray10);
+                    imagenPart10 = MultipartBody.Part.createFormData("photo"+"10", file10.getName(), requestFile10);
+
+                    proyecto = RequestBody.create(MultipartBody.FORM, edtProyecto.getText().toString());
+                    motivo = RequestBody.create(MultipartBody.FORM, edtMotivo.getText().toString());
+                    codigo_eam = RequestBody.create(MultipartBody.FORM, edtCodeEam.getText().toString());
+                    date = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    descripcion = RequestBody.create(MultipartBody.FORM, edtDescription.getText().toString());
+                    marca = RequestBody.create(MultipartBody.FORM, edtMarca.getText().toString());
+                    modelo = RequestBody.create(MultipartBody.FORM, edtModelo.getText().toString());
+                    nserie = RequestBody.create(MultipartBody.FORM, edtSerie.getText().toString());
+                    horometro = RequestBody.create(MultipartBody.FORM, edtHorometro.getText().toString());
+                    dateout = RequestBody.create(MultipartBody.FORM, edtDate.getText().toString());
+                    numero_fotos = RequestBody.create(MultipartBody.FORM, "10");
+                    call = service.createInform10(proyecto, motivo, codigo_eam, date, descripcion,modelo, marca, nserie, horometro,dateout,numero_fotos,imagenPart,imagenPart2,imagenPart3,imagenPart4,imagenPart5,imagenPart6,imagenPart7,imagenPart8,imagenPart9,imagenPart10);
+
                     break;
             }
             call.enqueue(new Callback<responseMessage>() {
@@ -434,13 +1130,13 @@ public class MainActivity extends AppCompatActivity {
 
                             responseMessage responseMessage = response.body();
                            // Log.d(TAG, "responseMessage: " + responseMessage);
-
+                            progressDialog.dismiss();
                             Toast.makeText(MainActivity.this,"respuesta"+responseMessage.getMessage(), Toast.LENGTH_LONG).show();
                             Log.e("MainActivity", "onError: " + responseMessage.getMessage().toString());
                         } else {
 
                             //hideDialog();
-
+                            progressDialog.dismiss();
                             Log.e("MainActivity", "onError: " +response.errorBody().string());
                             throw new Exception("Error en el servicio");
                         }
@@ -450,6 +1146,7 @@ public class MainActivity extends AppCompatActivity {
                             //hideDialog();
                             //Log.e(TAG, "onThrowable: " + t.toString(), t);
                             Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                            progressDialog.dismiss();
                         } catch (Throwable x) {
                         }
                     }
@@ -459,6 +1156,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onFailure(Call<responseMessage> call, Throwable t) {
                     //Log.e(TAG, "onFailure: " + t.toString());
                     Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
                 }
 
             });

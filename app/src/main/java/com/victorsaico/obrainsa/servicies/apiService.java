@@ -28,7 +28,7 @@ public interface apiService {
             @Part("horometro") RequestBody horometro,
             @Part("fecha_salida")RequestBody dateout,
             @Part("numero_fotos") RequestBody numero_fotos,
-            @Part MultipartBody.Part foto1
+            @Part MultipartBody.Part photo1
             );
     @Multipart
     @POST("/registrar-reporte")
@@ -43,8 +43,9 @@ public interface apiService {
             @Part("n_serie")RequestBody nserie,
             @Part("horometro") RequestBody horometro,
             @Part("fecha_salida")RequestBody dateout,
-            @Part("foto1")RequestBody foto1,
-            @Part("foto2")RequestBody foto2
+            @Part("numero_fotos") RequestBody numero_fotos,
+            @Part MultipartBody.Part photo1,
+            @Part MultipartBody.Part photo2
     );
     @Multipart
     @POST("/registrar-reporte")
@@ -59,14 +60,15 @@ public interface apiService {
             @Part("n_serie")RequestBody nserie,
             @Part("horometro") RequestBody horometro,
             @Part("fecha_salida")RequestBody dateout,
-            @Part("foto1")RequestBody foto1,
-            @Part("foto2")RequestBody foto2,
-            @Part("foto3")RequestBody foto3
+            @Part("numero_fotos") RequestBody numero_fotos,
+            @Part MultipartBody.Part photo1,
+            @Part MultipartBody.Part photo2,
+            @Part MultipartBody.Part photo3
 
     );
     @Multipart
     @POST("/registrar-reporte")
-    Call<responseMessage> createInform14(
+    Call<responseMessage> createInform4(
             @Part("proyecto")RequestBody proyecto,
             @Part("motivo")RequestBody motivo,
             @Part("codigo_eam")RequestBody codigoEam,
@@ -77,10 +79,11 @@ public interface apiService {
             @Part("n_serie")RequestBody nserie,
             @Part("horometro") RequestBody horometro,
             @Part("fecha_salida")RequestBody dateout,
-            @Part("foto1")RequestBody foto1,
-            @Part("foto2")RequestBody foto2,
-            @Part("foto3")RequestBody foto3,
-            @Part("foto4")RequestBody foto4
+            @Part("numero_fotos") RequestBody numero_fotos,
+            @Part MultipartBody.Part photo1,
+            @Part MultipartBody.Part photo2,
+            @Part MultipartBody.Part photo3,
+            @Part MultipartBody.Part photo4
     );
     @Multipart
     @POST("/registrar-reporte")
@@ -95,11 +98,12 @@ public interface apiService {
             @Part("n_serie")RequestBody nserie,
             @Part("horometro") RequestBody horometro,
             @Part("fecha_salida")RequestBody dateout,
-            @Part("foto1")RequestBody foto1,
-            @Part("foto2")RequestBody foto2,
-            @Part("foto3")RequestBody foto3,
-            @Part("foto4")RequestBody foto4,
-            @Part("foto5")RequestBody foto5
+            @Part("numero_fotos") RequestBody numero_fotos,
+            @Part MultipartBody.Part photo1,
+            @Part MultipartBody.Part photo2,
+            @Part MultipartBody.Part photo3,
+            @Part MultipartBody.Part photo4,
+            @Part MultipartBody.Part photo5
     );
     @Multipart
     @POST("/registrar-reporte")
@@ -114,12 +118,13 @@ public interface apiService {
             @Part("n_serie")RequestBody nserie,
             @Part("horometro") RequestBody horometro,
             @Part("fecha_salida")RequestBody dateout,
-            @Part("foto1")RequestBody foto1,
-            @Part("foto2")RequestBody foto2,
-            @Part("foto3")RequestBody foto3,
-            @Part("foto4")RequestBody foto4,
-            @Part("foto5")RequestBody foto5,
-            @Part("foto6")RequestBody foto6
+            @Part("numero_fotos") RequestBody numero_fotos,
+            @Part MultipartBody.Part photo1,
+            @Part MultipartBody.Part photo2,
+            @Part MultipartBody.Part photo3,
+            @Part MultipartBody.Part photo4,
+            @Part MultipartBody.Part photo5,
+            @Part MultipartBody.Part photo6
     );
     @Multipart
     @POST("/registrar-reporte")
@@ -134,13 +139,14 @@ public interface apiService {
             @Part("n_serie")RequestBody nserie,
             @Part("horometro") RequestBody horometro,
             @Part("fecha_salida")RequestBody dateout,
-            @Part("foto1")RequestBody foto1,
-            @Part("foto2")RequestBody foto2,
-            @Part("foto3")RequestBody foto3,
-            @Part("foto4")RequestBody foto4,
-            @Part("foto5")RequestBody foto5,
-            @Part("foto6")RequestBody foto6,
-            @Part("foto7")RequestBody foto7
+            @Part("numero_fotos") RequestBody numero_fotos,
+            @Part MultipartBody.Part photo1,
+            @Part MultipartBody.Part photo2,
+            @Part MultipartBody.Part photo3,
+            @Part MultipartBody.Part photo4,
+            @Part MultipartBody.Part photo5,
+            @Part MultipartBody.Part photo6,
+            @Part MultipartBody.Part photo7
     );
     @Multipart
     @POST("/registrar-reporte")
@@ -155,14 +161,15 @@ public interface apiService {
             @Part("n_serie")RequestBody nserie,
             @Part("horometro") RequestBody horometro,
             @Part("fecha_salida")RequestBody dateout,
-            @Part("foto1")RequestBody foto1,
-            @Part("foto2")RequestBody foto2,
-            @Part("foto3")RequestBody foto3,
-            @Part("foto4")RequestBody foto4,
-            @Part("foto5")RequestBody foto5,
-            @Part("foto6")RequestBody foto6,
-            @Part("foto7")RequestBody foto7,
-            @Part("foto8")RequestBody foto8
+            @Part("numero_fotos") RequestBody numero_fotos,
+            @Part MultipartBody.Part photo1,
+            @Part MultipartBody.Part photo2,
+            @Part MultipartBody.Part photo3,
+            @Part MultipartBody.Part photo4,
+            @Part MultipartBody.Part photo5,
+            @Part MultipartBody.Part photo6,
+            @Part MultipartBody.Part photo7,
+            @Part MultipartBody.Part photo8
     );
     @Multipart
     @POST("/registrar-reporte")
@@ -177,15 +184,16 @@ public interface apiService {
             @Part("n_serie")RequestBody nserie,
             @Part("horometro") RequestBody horometro,
             @Part("fecha_salida")RequestBody dateout,
-            @Part("foto1")RequestBody foto1,
-            @Part("foto2")RequestBody foto2,
-            @Part("foto3")RequestBody foto3,
-            @Part("foto4")RequestBody foto4,
-            @Part("foto5")RequestBody foto5,
-            @Part("foto6")RequestBody foto6,
-            @Part("foto7")RequestBody foto7,
-            @Part("foto8")RequestBody foto8,
-            @Part("foto9")RequestBody foto9
+            @Part("numero_fotos") RequestBody numero_fotos,
+            @Part MultipartBody.Part photo1,
+            @Part MultipartBody.Part photo2,
+            @Part MultipartBody.Part photo3,
+            @Part MultipartBody.Part photo4,
+            @Part MultipartBody.Part photo5,
+            @Part MultipartBody.Part photo6,
+            @Part MultipartBody.Part photo7,
+            @Part MultipartBody.Part photo8,
+            @Part MultipartBody.Part photo9
     );
     @Multipart
     @POST("/registrar-reporte")
@@ -200,15 +208,16 @@ public interface apiService {
             @Part("n_serie")RequestBody nserie,
             @Part("horometro") RequestBody horometro,
             @Part("fecha_salida")RequestBody dateout,
-            @Part("foto1")RequestBody foto1,
-            @Part("foto2")RequestBody foto2,
-            @Part("foto3")RequestBody foto3,
-            @Part("foto4")RequestBody foto4,
-            @Part("foto5")RequestBody foto5,
-            @Part("foto6")RequestBody foto6,
-            @Part("foto7")RequestBody foto7,
-            @Part("foto8")RequestBody foto8,
-            @Part("foto9")RequestBody foto9,
-            @Part("foto10")RequestBody foto10
+            @Part("numero_fotos") RequestBody numero_fotos,
+            @Part MultipartBody.Part photo1,
+            @Part MultipartBody.Part photo2,
+            @Part MultipartBody.Part photo3,
+            @Part MultipartBody.Part photo4,
+            @Part MultipartBody.Part photo5,
+            @Part MultipartBody.Part photo6,
+            @Part MultipartBody.Part photo7,
+            @Part MultipartBody.Part photo8,
+            @Part MultipartBody.Part photo9,
+            @Part MultipartBody.Part photo10
     );
 }
