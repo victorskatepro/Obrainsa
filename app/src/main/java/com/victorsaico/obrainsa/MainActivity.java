@@ -417,7 +417,7 @@ public class MainActivity extends AppCompatActivity {
 
                         file = new File(mediaFileUri.getPath());
                         bitmap = BitmapFactory.decodeFile(file.getPath());
-                        bitmap = scaleBitmapDown(bitmap, 800);
+                        bitmap = scaleBitmapDown(bitmap, 450);
                         stream = new ByteArrayOutputStream();
                         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                         byteArray = stream.toByteArray();
@@ -442,7 +442,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file = new File(uris.get(0).getPath());
                         bitmap = BitmapFactory.decodeFile(file.getPath());
-                        bitmap = scaleBitmapDown(bitmap, 800);
+                        bitmap = scaleBitmapDown(bitmap, 450);
                          stream = new ByteArrayOutputStream();
                         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                         byteArray = stream.toByteArray();
@@ -453,7 +453,7 @@ public class MainActivity extends AppCompatActivity {
 
                    file2 = new File(uris.get(1).getPath());
                     bitmap2 = BitmapFactory.decodeFile(file2.getPath());
-                    bitmap2 = scaleBitmapDown(bitmap2, 800);
+                    bitmap2 = scaleBitmapDown(bitmap2, 450);
                     stream2 = new ByteArrayOutputStream();
                     bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                     byteArray2 = stream2.toByteArray();
@@ -477,7 +477,7 @@ public class MainActivity extends AppCompatActivity {
                 case 3:
                     file = new File(uris.get(0).getPath());
                     bitmap = BitmapFactory.decodeFile(file.getPath());
-                    bitmap = scaleBitmapDown(bitmap, 800);
+                    bitmap = scaleBitmapDown(bitmap, 450);
                     stream = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                     byteArray = stream.toByteArray();
@@ -488,7 +488,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file2 = new File(uris.get(1).getPath());
                     bitmap2 = BitmapFactory.decodeFile(file2.getPath());
-                    bitmap2 = scaleBitmapDown(bitmap2, 800);
+                    bitmap2 = scaleBitmapDown(bitmap2, 450);
                     stream2 = new ByteArrayOutputStream();
                     bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                     byteArray2 = stream2.toByteArray();
@@ -498,7 +498,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file3 = new File(uris.get(2).getPath());
                     bitmap3 = BitmapFactory.decodeFile(file3.getPath());
-                    bitmap3 = scaleBitmapDown(bitmap3, 800);
+                    bitmap3 = scaleBitmapDown(bitmap3, 450);
                     stream3 = new ByteArrayOutputStream();
                     bitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
                     byteArray3 = stream3.toByteArray();
@@ -522,7 +522,7 @@ public class MainActivity extends AppCompatActivity {
                 case 4:
                     file = new File(uris.get(0).getPath());
                     bitmap = BitmapFactory.decodeFile(file.getPath());
-                    bitmap = scaleBitmapDown(bitmap, 800);
+                    bitmap = scaleBitmapDown(bitmap, 450);
                     stream = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                     byteArray = stream.toByteArray();
@@ -533,7 +533,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file2 = new File(uris.get(1).getPath());
                     bitmap2 = BitmapFactory.decodeFile(file2.getPath());
-                    bitmap2 = scaleBitmapDown(bitmap2, 800);
+                    bitmap2 = scaleBitmapDown(bitmap2, 450);
                     stream2 = new ByteArrayOutputStream();
                     bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                     byteArray2 = stream2.toByteArray();
@@ -543,7 +543,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file3 = new File(uris.get(2).getPath());
                     bitmap3 = BitmapFactory.decodeFile(file3.getPath());
-                    bitmap3 = scaleBitmapDown(bitmap3, 800);
+                    bitmap3 = scaleBitmapDown(bitmap3, 450);
                     stream3 = new ByteArrayOutputStream();
                     bitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
                     byteArray3 = stream3.toByteArray();
@@ -553,7 +553,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file4 = new File(uris.get(3).getPath());
                     bitmap4 = BitmapFactory.decodeFile(file4.getPath());
-                    bitmap4 = scaleBitmapDown(bitmap4, 800);
+                    bitmap4 = scaleBitmapDown(bitmap4, 450);
                     stream4 = new ByteArrayOutputStream();
                     bitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
                     byteArray4 = stream4.toByteArray();
@@ -577,7 +577,7 @@ public class MainActivity extends AppCompatActivity {
                 case 5:
                     file = new File(uris.get(0).getPath());
                     bitmap = BitmapFactory.decodeFile(file.getPath());
-                    bitmap = scaleBitmapDown(bitmap, 800);
+                    bitmap = scaleBitmapDown(bitmap, 450);
                     stream = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                     byteArray = stream.toByteArray();
@@ -588,7 +588,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file2 = new File(uris.get(1).getPath());
                     bitmap2 = BitmapFactory.decodeFile(file2.getPath());
-                    bitmap2 = scaleBitmapDown(bitmap2, 800);
+                    bitmap2 = scaleBitmapDown(bitmap2, 450);
                     stream2 = new ByteArrayOutputStream();
                     bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                     byteArray2 = stream2.toByteArray();
@@ -598,7 +598,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file3 = new File(uris.get(2).getPath());
                     bitmap3 = BitmapFactory.decodeFile(file3.getPath());
-                    bitmap3 = scaleBitmapDown(bitmap3, 800);
+                    bitmap3 = scaleBitmapDown(bitmap3, 450);
                     stream3 = new ByteArrayOutputStream();
                     bitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
                     byteArray3 = stream3.toByteArray();
@@ -608,7 +608,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file4 = new File(uris.get(3).getPath());
                     bitmap4 = BitmapFactory.decodeFile(file4.getPath());
-                    bitmap4 = scaleBitmapDown(bitmap4, 800);
+                    bitmap4 = scaleBitmapDown(bitmap4, 450);
                     stream4 = new ByteArrayOutputStream();
                     bitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
                     byteArray4 = stream4.toByteArray();
@@ -618,7 +618,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file5 = new File(uris.get(4).getPath());
                     bitmap5 = BitmapFactory.decodeFile(file5.getPath());
-                    bitmap5 = scaleBitmapDown(bitmap5, 800);
+                    bitmap5 = scaleBitmapDown(bitmap5, 450);
                     stream5 = new ByteArrayOutputStream();
                     bitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
                     byteArray5 = stream5.toByteArray();
@@ -643,7 +643,7 @@ public class MainActivity extends AppCompatActivity {
                 case 6:
                     file = new File(uris.get(0).getPath());
                     bitmap = BitmapFactory.decodeFile(file.getPath());
-                    bitmap = scaleBitmapDown(bitmap, 800);
+                    bitmap = scaleBitmapDown(bitmap, 450);
                     stream = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                     byteArray = stream.toByteArray();
@@ -654,7 +654,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file2 = new File(uris.get(1).getPath());
                     bitmap2 = BitmapFactory.decodeFile(file2.getPath());
-                    bitmap2 = scaleBitmapDown(bitmap2, 800);
+                    bitmap2 = scaleBitmapDown(bitmap2, 450);
                     stream2 = new ByteArrayOutputStream();
                     bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                     byteArray2 = stream2.toByteArray();
@@ -664,7 +664,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file3 = new File(uris.get(2).getPath());
                     bitmap3 = BitmapFactory.decodeFile(file3.getPath());
-                    bitmap3 = scaleBitmapDown(bitmap3, 800);
+                    bitmap3 = scaleBitmapDown(bitmap3, 450);
                     stream3 = new ByteArrayOutputStream();
                     bitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
                     byteArray3 = stream3.toByteArray();
@@ -674,7 +674,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file4 = new File(uris.get(3).getPath());
                     bitmap4 = BitmapFactory.decodeFile(file4.getPath());
-                    bitmap4 = scaleBitmapDown(bitmap4, 800);
+                    bitmap4 = scaleBitmapDown(bitmap4, 450);
                     stream4 = new ByteArrayOutputStream();
                     bitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
                     byteArray4 = stream4.toByteArray();
@@ -684,7 +684,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file5 = new File(uris.get(4).getPath());
                     bitmap5 = BitmapFactory.decodeFile(file5.getPath());
-                    bitmap5 = scaleBitmapDown(bitmap5, 800);
+                    bitmap5 = scaleBitmapDown(bitmap5, 450);
                     stream5 = new ByteArrayOutputStream();
                     bitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
                     byteArray5 = stream5.toByteArray();
@@ -694,7 +694,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file6 = new File(uris.get(5).getPath());
                     bitmap6 = BitmapFactory.decodeFile(file6.getPath());
-                    bitmap6 = scaleBitmapDown(bitmap6, 800);
+                    bitmap6 = scaleBitmapDown(bitmap6, 450);
                     stream6 = new ByteArrayOutputStream();
                     bitmap6.compress(Bitmap.CompressFormat.JPEG, 100, stream6);
                     byteArray6 = stream6.toByteArray();
@@ -719,7 +719,7 @@ public class MainActivity extends AppCompatActivity {
                 case 7:
                     file = new File(uris.get(0).getPath());
                     bitmap = BitmapFactory.decodeFile(file.getPath());
-                    bitmap = scaleBitmapDown(bitmap, 800);
+                    bitmap = scaleBitmapDown(bitmap, 450);
                     stream = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                     byteArray = stream.toByteArray();
@@ -730,7 +730,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file2 = new File(uris.get(1).getPath());
                     bitmap2 = BitmapFactory.decodeFile(file2.getPath());
-                    bitmap2 = scaleBitmapDown(bitmap2, 800);
+                    bitmap2 = scaleBitmapDown(bitmap2, 450);
                     stream2 = new ByteArrayOutputStream();
                     bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                     byteArray2 = stream2.toByteArray();
@@ -740,7 +740,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file3 = new File(uris.get(2).getPath());
                     bitmap3 = BitmapFactory.decodeFile(file3.getPath());
-                    bitmap3 = scaleBitmapDown(bitmap3, 800);
+                    bitmap3 = scaleBitmapDown(bitmap3, 450);
                     stream3 = new ByteArrayOutputStream();
                     bitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
                     byteArray3 = stream3.toByteArray();
@@ -750,7 +750,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file4 = new File(uris.get(3).getPath());
                     bitmap4 = BitmapFactory.decodeFile(file4.getPath());
-                    bitmap4 = scaleBitmapDown(bitmap4, 800);
+                    bitmap4 = scaleBitmapDown(bitmap4, 450);
                     stream4 = new ByteArrayOutputStream();
                     bitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
                     byteArray4 = stream4.toByteArray();
@@ -760,7 +760,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file5 = new File(uris.get(4).getPath());
                     bitmap5 = BitmapFactory.decodeFile(file5.getPath());
-                    bitmap5 = scaleBitmapDown(bitmap5, 800);
+                    bitmap5 = scaleBitmapDown(bitmap5, 450);
                     stream5 = new ByteArrayOutputStream();
                     bitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
                     byteArray5 = stream5.toByteArray();
@@ -770,7 +770,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file6 = new File(uris.get(5).getPath());
                     bitmap6 = BitmapFactory.decodeFile(file6.getPath());
-                    bitmap6 = scaleBitmapDown(bitmap6, 800);
+                    bitmap6 = scaleBitmapDown(bitmap6, 450);
                     stream6 = new ByteArrayOutputStream();
                     bitmap6.compress(Bitmap.CompressFormat.JPEG, 100, stream6);
                     byteArray6 = stream6.toByteArray();
@@ -780,7 +780,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file7 = new File(uris.get(6).getPath());
                     bitmap7 = BitmapFactory.decodeFile(file7.getPath());
-                    bitmap7 = scaleBitmapDown(bitmap7, 800);
+                    bitmap7 = scaleBitmapDown(bitmap7, 450);
                     stream7 = new ByteArrayOutputStream();
                     bitmap7.compress(Bitmap.CompressFormat.JPEG, 100, stream7);
                     byteArray7 = stream7.toByteArray();
@@ -804,7 +804,7 @@ public class MainActivity extends AppCompatActivity {
                 case 8:
                     file = new File(uris.get(0).getPath());
                     bitmap = BitmapFactory.decodeFile(file.getPath());
-                    bitmap = scaleBitmapDown(bitmap, 800);
+                    bitmap = scaleBitmapDown(bitmap, 450);
                     stream = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                     byteArray = stream.toByteArray();
@@ -815,7 +815,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file2 = new File(uris.get(1).getPath());
                     bitmap2 = BitmapFactory.decodeFile(file2.getPath());
-                    bitmap2 = scaleBitmapDown(bitmap2, 800);
+                    bitmap2 = scaleBitmapDown(bitmap2, 450);
                     stream2 = new ByteArrayOutputStream();
                     bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                     byteArray2 = stream2.toByteArray();
@@ -825,7 +825,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file3 = new File(uris.get(2).getPath());
                     bitmap3 = BitmapFactory.decodeFile(file3.getPath());
-                    bitmap3 = scaleBitmapDown(bitmap3, 800);
+                    bitmap3 = scaleBitmapDown(bitmap3, 450);
                     stream3 = new ByteArrayOutputStream();
                     bitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
                     byteArray3 = stream3.toByteArray();
@@ -835,7 +835,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file4 = new File(uris.get(3).getPath());
                     bitmap4 = BitmapFactory.decodeFile(file4.getPath());
-                    bitmap4 = scaleBitmapDown(bitmap4, 800);
+                    bitmap4 = scaleBitmapDown(bitmap4, 450);
                     stream4 = new ByteArrayOutputStream();
                     bitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
                     byteArray4 = stream4.toByteArray();
@@ -845,7 +845,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file5 = new File(uris.get(4).getPath());
                     bitmap5 = BitmapFactory.decodeFile(file5.getPath());
-                    bitmap5 = scaleBitmapDown(bitmap5, 800);
+                    bitmap5 = scaleBitmapDown(bitmap5, 450);
                     stream5 = new ByteArrayOutputStream();
                     bitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
                     byteArray5 = stream5.toByteArray();
@@ -855,7 +855,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file6 = new File(uris.get(5).getPath());
                     bitmap6 = BitmapFactory.decodeFile(file6.getPath());
-                    bitmap6 = scaleBitmapDown(bitmap6, 800);
+                    bitmap6 = scaleBitmapDown(bitmap6, 450);
                     stream6 = new ByteArrayOutputStream();
                     bitmap6.compress(Bitmap.CompressFormat.JPEG, 100, stream6);
                     byteArray6 = stream6.toByteArray();
@@ -865,7 +865,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file7 = new File(uris.get(6).getPath());
                     bitmap7 = BitmapFactory.decodeFile(file7.getPath());
-                    bitmap7 = scaleBitmapDown(bitmap7, 800);
+                    bitmap7 = scaleBitmapDown(bitmap7, 450);
                     stream7 = new ByteArrayOutputStream();
                     bitmap7.compress(Bitmap.CompressFormat.JPEG, 100, stream7);
                     byteArray7 = stream7.toByteArray();
@@ -875,7 +875,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file8 = new File(uris.get(7).getPath());
                     bitmap8 = BitmapFactory.decodeFile(file8.getPath());
-                    bitmap8 = scaleBitmapDown(bitmap8, 800);
+                    bitmap8 = scaleBitmapDown(bitmap8, 450);
                     stream8 = new ByteArrayOutputStream();
                     bitmap8.compress(Bitmap.CompressFormat.JPEG, 100, stream8);
                     byteArray8 = stream8.toByteArray();
@@ -899,7 +899,7 @@ public class MainActivity extends AppCompatActivity {
                 case  9:
                 file = new File(uris.get(0).getPath());
                     bitmap = BitmapFactory.decodeFile(file.getPath());
-                bitmap = scaleBitmapDown(bitmap, 800);
+                bitmap = scaleBitmapDown(bitmap, 450);
                 stream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                 byteArray = stream.toByteArray();
@@ -910,7 +910,7 @@ public class MainActivity extends AppCompatActivity {
 
                 file2 = new File(uris.get(1).getPath());
                     bitmap2 = BitmapFactory.decodeFile(file2.getPath());
-                bitmap2 = scaleBitmapDown(bitmap, 800);
+                bitmap2 = scaleBitmapDown(bitmap, 450);
                 stream2 = new ByteArrayOutputStream();
                 bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                 byteArray2 = stream2.toByteArray();
@@ -920,7 +920,7 @@ public class MainActivity extends AppCompatActivity {
 
                 file3 = new File(uris.get(2).getPath());
                     bitmap3 = BitmapFactory.decodeFile(file3.getPath());
-                bitmap3 = scaleBitmapDown(bitmap3, 800);
+                bitmap3 = scaleBitmapDown(bitmap3, 450);
                 stream3 = new ByteArrayOutputStream();
                 bitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
                 byteArray3 = stream3.toByteArray();
@@ -930,7 +930,7 @@ public class MainActivity extends AppCompatActivity {
 
                 file4 = new File(uris.get(3).getPath());
                     bitmap4 = BitmapFactory.decodeFile(file4.getPath());
-                bitmap4 = scaleBitmapDown(bitmap4, 800);
+                bitmap4 = scaleBitmapDown(bitmap4, 450);
                 stream4 = new ByteArrayOutputStream();
                 bitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
                 byteArray4 = stream4.toByteArray();
@@ -940,7 +940,7 @@ public class MainActivity extends AppCompatActivity {
 
                 file5 = new File(uris.get(4).getPath());
                     bitmap5 = BitmapFactory.decodeFile(file5.getPath());
-                bitmap5 = scaleBitmapDown(bitmap5, 800);
+                bitmap5 = scaleBitmapDown(bitmap5, 450);
                 stream5 = new ByteArrayOutputStream();
                 bitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
                 byteArray5 = stream5.toByteArray();
@@ -950,7 +950,7 @@ public class MainActivity extends AppCompatActivity {
 
                 file6 = new File(uris.get(5).getPath());
                     bitmap6 = BitmapFactory.decodeFile(file6.getPath());
-                bitmap6 = scaleBitmapDown(bitmap6, 800);
+                bitmap6 = scaleBitmapDown(bitmap6, 450);
                 stream6 = new ByteArrayOutputStream();
                 bitmap6.compress(Bitmap.CompressFormat.JPEG, 100, stream6);
                 byteArray6 = stream6.toByteArray();
@@ -960,7 +960,7 @@ public class MainActivity extends AppCompatActivity {
 
                 file7 = new File(uris.get(6).getPath());
                     bitmap7 = BitmapFactory.decodeFile(file7.getPath());
-                bitmap7 = scaleBitmapDown(bitmap, 800);
+                bitmap7 = scaleBitmapDown(bitmap, 450);
                 stream7 = new ByteArrayOutputStream();
                 bitmap7.compress(Bitmap.CompressFormat.JPEG, 100, stream7);
                 byteArray7 = stream7.toByteArray();
@@ -970,7 +970,7 @@ public class MainActivity extends AppCompatActivity {
 
                 file8 = new File(uris.get(7).getPath());
                     bitmap8 = BitmapFactory.decodeFile(file8.getPath());
-                bitmap8 = scaleBitmapDown(bitmap8, 800);
+                bitmap8 = scaleBitmapDown(bitmap8, 450);
                 stream8 = new ByteArrayOutputStream();
                 bitmap8.compress(Bitmap.CompressFormat.JPEG, 100, stream8);
                 byteArray8 = stream8.toByteArray();
@@ -980,7 +980,7 @@ public class MainActivity extends AppCompatActivity {
 
                 file9 = new File(uris.get(8).getPath());
                     bitmap9 = BitmapFactory.decodeFile(file9.getPath());
-                bitmap9 = scaleBitmapDown(bitmap9, 800);
+                bitmap9 = scaleBitmapDown(bitmap9, 450);
                 stream9 = new ByteArrayOutputStream();
                 bitmap9.compress(Bitmap.CompressFormat.JPEG, 100, stream9);
                 byteArray9 = stream9.toByteArray();
@@ -1004,7 +1004,7 @@ public class MainActivity extends AppCompatActivity {
                 case 10:
                     file = new File(uris.get(0).getPath());
                     bitmap = BitmapFactory.decodeFile(file.getPath());
-                    bitmap = scaleBitmapDown(bitmap, 800);
+                    bitmap = scaleBitmapDown(bitmap, 450);
                     stream = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                     byteArray = stream.toByteArray();
@@ -1015,7 +1015,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file2 = new File(uris.get(1).getPath());
                     bitmap2 = BitmapFactory.decodeFile(file2.getPath());
-                    bitmap2 = scaleBitmapDown(bitmap2, 800);
+                    bitmap2 = scaleBitmapDown(bitmap2, 450);
                     stream2 = new ByteArrayOutputStream();
                     bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                     byteArray2 = stream2.toByteArray();
@@ -1025,7 +1025,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file3 = new File(uris.get(2).getPath());
                     bitmap3 = BitmapFactory.decodeFile(file3.getPath());
-                    bitmap3 = scaleBitmapDown(bitmap3, 800);
+                    bitmap3 = scaleBitmapDown(bitmap3, 450);
                     stream3 = new ByteArrayOutputStream();
                     bitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
                     byteArray3 = stream3.toByteArray();
@@ -1035,7 +1035,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file4 = new File(uris.get(3).getPath());
                     bitmap4 = BitmapFactory.decodeFile(file4.getPath());
-                    bitmap4 = scaleBitmapDown(bitmap, 800);
+                    bitmap4 = scaleBitmapDown(bitmap, 450);
                     stream4 = new ByteArrayOutputStream();
                     bitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
                     byteArray4 = stream4.toByteArray();
@@ -1045,7 +1045,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file5 = new File(uris.get(4).getPath());
                     bitmap5 = BitmapFactory.decodeFile(file5.getPath());
-                    bitmap5 = scaleBitmapDown(bitmap5, 800);
+                    bitmap5 = scaleBitmapDown(bitmap5, 450);
                     stream5 = new ByteArrayOutputStream();
                     bitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
                     byteArray5 = stream5.toByteArray();
@@ -1055,7 +1055,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file6 = new File(uris.get(5).getPath());
                     bitmap6 = BitmapFactory.decodeFile(file6.getPath());
-                    bitmap6 = scaleBitmapDown(bitmap6, 800);
+                    bitmap6 = scaleBitmapDown(bitmap6, 450);
                     stream6 = new ByteArrayOutputStream();
                     bitmap6.compress(Bitmap.CompressFormat.JPEG, 100, stream6);
                     byteArray6 = stream6.toByteArray();
@@ -1065,7 +1065,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file7 = new File(uris.get(6).getPath());
                     bitmap7 = BitmapFactory.decodeFile(file7.getPath());
-                    bitmap7 = scaleBitmapDown(bitmap7, 800);
+                    bitmap7 = scaleBitmapDown(bitmap7, 450);
                     stream7 = new ByteArrayOutputStream();
                     bitmap7.compress(Bitmap.CompressFormat.JPEG, 100, stream7);
                     byteArray7 = stream7.toByteArray();
@@ -1075,7 +1075,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file8 = new File(uris.get(7).getPath());
                     bitmap8 = BitmapFactory.decodeFile(file8.getPath());
-                    bitmap8 = scaleBitmapDown(bitmap8, 800);
+                    bitmap8 = scaleBitmapDown(bitmap8, 450);
                     stream8 = new ByteArrayOutputStream();
                     bitmap8.compress(Bitmap.CompressFormat.JPEG, 100, stream8);
                     byteArray8 = stream8.toByteArray();
@@ -1085,7 +1085,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file9 = new File(uris.get(8).getPath());
                     bitmap9 = BitmapFactory.decodeFile(file9.getPath());
-                    bitmap9 = scaleBitmapDown(bitmap9, 800);
+                    bitmap9 = scaleBitmapDown(bitmap9, 450);
                     stream9 = new ByteArrayOutputStream();
                     bitmap9.compress(Bitmap.CompressFormat.JPEG, 100, stream9);
                     byteArray9 = stream9.toByteArray();
@@ -1095,7 +1095,7 @@ public class MainActivity extends AppCompatActivity {
 
                     file10 = new File(uris.get(9).getPath());
                     bitmap10 = BitmapFactory.decodeFile(file10.getPath());
-                    bitmap10 = scaleBitmapDown(bitmap10, 800);
+                    bitmap10 = scaleBitmapDown(bitmap10, 450);
                     stream10 = new ByteArrayOutputStream();
                     bitmap10.compress(Bitmap.CompressFormat.JPEG, 100, stream10);
                     byteArray10 = stream10.toByteArray();
